@@ -10,6 +10,7 @@
 
 &trackball {
     // automouse-layer = <4>;
+
     scroll-layers = <3>;
 
     // arrows {
@@ -73,6 +74,15 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        scroll_up_down: scroll_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "SCROLL_UP_DOWN";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <20>;
+        };
     };
 
     keymap {
@@ -86,7 +96,7 @@
 &kp LEFT_GUI      &kp LEFT_SHIFT  &mo 2  &mo 4  &mo 1  &kp SPACE      &kp ENTER      &kp RIGHT_SHIFT                             &kp RIGHT_ALT
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&scroll_up_down>;
         };
 
         FUNCTION {
